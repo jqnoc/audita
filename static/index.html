@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <title>Audita — Music statistics</title>
+  <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-frame">
+    <header class="titlebar">
+      <div class="brand">
+        <img src="/static/logo.svg" alt="" class="brand-mark">
+        <div>
+          <a class="brand-name" href="#" data-view="dashboard">Audita</a>
+          <span class="brand-tagline">your listening, decoded</span>
+        </div>
+      </div>
+      <div class="titlebar-actions">
+        <button class="icon-button theme-button" type="button" data-action="theme" aria-label="Switch theme">☼</button>
+        <span class="window-divider" aria-hidden="true"></span>
+        <button class="window-button" type="button" data-action="minimize" aria-label="Minimize">−</button>
+        <button class="window-button" type="button" data-action="maximize" aria-label="Maximize">□</button>
+        <button class="window-button window-close" type="button" data-action="quit" aria-label="Close">×</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="sidebar">
+        <div class="sidebar-source">
+          <span class="source-pulse"></span>
+          <div>
+            <span class="sidebar-label">SOURCE</span>
+            <strong id="source-name">MediaMonkey XML</strong>
+          </div>
+        </div>
+        <nav class="sidebar-nav" aria-label="Primary navigation">
+          <span class="nav-section-label">Explore</span>
+          <button class="nav-item active" type="button" data-view="dashboard"><span class="nav-icon">◈</span>Dashboard</button>
+          <button class="nav-item" type="button" data-view="artists"><span class="nav-icon">♬</span>Artists</button>
+          <button class="nav-item" type="button" data-view="albums"><span class="nav-icon">▣</span>Albums</button>
+          <button class="nav-item" type="button" data-view="tracks"><span class="nav-icon">♫</span>Tracks</button>
+          <button class="nav-item" type="button" data-view="genres"><span class="nav-icon">◌</span>Genres</button>
+          <span class="nav-section-label nav-section-spaced">Understand</span>
+          <button class="nav-item" type="button" data-view="timeline"><span class="nav-icon">⌁</span>Catalog timeline</button>
+          <button class="nav-item" type="button" data-view="source"><span class="nav-icon">ⓘ</span>About this data</button>
+        </nav>
+        <div class="sidebar-footer">
+          <span class="sidebar-label">READ-ONLY MODE</span>
+          <p>Audita never changes your MediaMonkey export.</p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="main-content" tabindex="-1">
+        <div class="loading-state"><span class="loading-spinner"></span><span>Reading your library…</span></div>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

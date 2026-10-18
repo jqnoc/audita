@@ -1,0 +1,52 @@
+{
+  "name": "audita",
+  "version": "0.1.0",
+  "description": "A private music listening statistics visualizer for MediaMonkey exports",
+  "author": "Joaquín Ossorio-Castillo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:backend": "node scripts/build_backend.js",
+    "build": "npm run build:backend && electron-builder --win",
+    "test:backend": "python -m unittest discover -s tests -p \"test_*.py\""
+  },
+  "private": true,
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.audita.app",
+    "productName": "Audita",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "package.json",
+      "scripts/python_command.js"
+    ],
+    "extraResources": [
+      {
+        "from": "static",
+        "to": "app/static"
+      },
+      {
+        "from": "data",
+        "to": "app/data"
+      },
+      {
+        "from": "build/backend",
+        "to": "backend",
+        "filter": [
+          "audita-backend.exe"
+        ]
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "signAndEditExecutable": false
+    }
+  }
+}
