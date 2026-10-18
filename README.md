@@ -47,6 +47,8 @@ npm start
 
 On Windows, `run-audita.bat` starts the same application through
 `Audita.vbs`, which launches Electron without showing a console window.
+Run `npm.cmd install` once after cloning or copying the project; the launcher
+will show an actionable message if the Electron dependencies are missing.
 
 The Electron shell starts `app.py` on a loopback-only port and waits for the
 local Flask API before opening the renderer. For backend-only checks:
